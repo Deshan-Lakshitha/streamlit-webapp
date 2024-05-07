@@ -44,7 +44,6 @@ def display_slice(data, index):
         st.image(slice, caption=f"Slice {index+1} of 128")  # Display with informative caption
     
 
-
 global temp_data_directory
 temp_data_directory = ''
 
@@ -351,6 +350,7 @@ elif selected == '📚 How To Use':
     
 elif selected == '🛠️ Segmentation Tool':
 
+
      # Apply custom CSS styles for the dark theme and improved design
     st.markdown(
         """
@@ -408,7 +408,6 @@ elif selected == '🛠️ Segmentation Tool':
 
                     # Send to model and get prediction
                     prediction_seg, prediction_edge, original_prediction_seg, model = predict(input)
-                    print('Original Prediction Seg:', original_prediction_seg.shape)
 
                 deleteTempData()
 
@@ -449,7 +448,6 @@ elif selected == '🛠️ Segmentation Tool':
                         st.write('##### Segmentation Result')
                         slice_index_5 = st.slider("Select Slice", min_value=0, max_value=127, value=77, key="seg")
                         seg_image = create_seg_image(original_prediction_seg)
-                        print('Seg Image:', seg_image.shape)
                         # display_result(seg_image, slice_index_5)
 
                         # Save a slice as a jpg image
@@ -466,8 +464,6 @@ elif selected == '🛠️ Segmentation Tool':
                     with col2:
                         st.write('##### Edge Detection Result')
                         slice_index_6 = st.slider("Select Slice", min_value=0, max_value=127, value=77, key="edge")
-                        print("==================================")
-                        print('Edge Image:', prediction_edge.shape)
                         # edge_image = create_seg_image(prediction_edge)
                         # display_result(edge_image, slice_index_6)
 

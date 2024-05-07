@@ -118,7 +118,7 @@ model = load_model('./dual_decoder_simsiam_3d_unet.hdf5',
         )
 
 def predict(test_img_input):
-    # print("Predict called")
+    print("Predict called")
     test_prediction_seg, test_prediction_edg = model.predict(test_img_input)
     test_prediction_argmax=np.argmax(test_prediction_seg, axis=4)[0,:,:,:]
     test_prediction_edge_argmax=np.argmax(test_prediction_edg, axis=4)[0,:,:,:]
