@@ -37,11 +37,11 @@ def display_slice(data, index):
     """
     
     slice = data[:, :, index]
-    col1, col2, col3 = st.columns([3,2,3])  # Adjust width ratios as needed
+    col1, col2, col3 = st.columns([2,6,2])  # Adjust width ratios as needed
 
     # Add content to center column
     with col2:
-        st.image(slice, caption=f"Slice {index+1} of 128")  # Display with informative caption
+        st.image(slice, caption=f"Slice {index+1} of 128", width=300)  # Display with informative caption
     
 
 global temp_data_directory
@@ -453,10 +453,10 @@ elif selected == '🛠️ Segmentation Tool':
                         # Save a slice as a jpg image
                         plt.imsave('seg_image.jpg', seg_image[:,:,slice_index_5])
                         
-                        col7, col8, col9 = st.columns([2,3,2]) 
+                        col7, col8, col9 = st.columns([2,6,2]) 
                         # Show the image in browser
                         with col8:
-                            st.image('seg_image.jpg', width=130)
+                            st.image('seg_image.jpg', width=300)
                             download_seg_results('seg_images', 'neurowhiz_segment_results.zip', 'seg_dwn_btn')
                         # Delete image from storage
                         os.remove('seg_image.jpg')
@@ -470,9 +470,9 @@ elif selected == '🛠️ Segmentation Tool':
                         # Save a slice as a jpg image
                         plt.imsave('edge_image.jpg', prediction_edge[:,:,slice_index_6])
                         # Show the image in browser
-                        col7, col8, col9 = st.columns([2,3,2]) 
+                        col7, col8, col9 = st.columns([2,6,2]) 
                         with col8:
-                            st.image('edge_image.jpg', width=130)
+                            st.image('edge_image.jpg', width=300)
                             download_seg_results('edge_images', 'neurowhiz_edge_results.zip', 'edg_dwn_btn')
                         # Delete image from storage
                         os.remove('edge_image.jpg')
